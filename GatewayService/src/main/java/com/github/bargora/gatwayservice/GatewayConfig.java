@@ -13,6 +13,7 @@ public class GatewayConfig {
         return routeLocatorBuilder
                 .routes()
                 .route("greetings",r -> r.path("/greetings/*")
+//                        .filters(f -> f.circuitBreaker())
                         .uri("lb://hello-service"))
                 .build();
     }
