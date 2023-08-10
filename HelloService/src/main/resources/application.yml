@@ -7,3 +7,8 @@ eureka:
 spring:
   application:
     name: hello-service
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus

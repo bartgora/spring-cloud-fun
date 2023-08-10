@@ -10,3 +10,9 @@ eureka:
       enable: true
     service-url:
       defaultZone: http://localhost:8090/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
