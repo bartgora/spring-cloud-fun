@@ -1,0 +1,12 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: fallback-service
+eureka:
+  client:
+    refresh:
+      enable: true
+    service-url:
+      defaultZone: http://localhost:8090/eureka

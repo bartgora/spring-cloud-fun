@@ -12,8 +12,10 @@ public class GatewayConfig {
     public RouteLocator routeLocator(RouteLocatorBuilder routeLocatorBuilder) {
         return routeLocatorBuilder
                 .routes()
-                .route("greetings",r -> r.path("/greetings/*")
+                .route("greetings", r -> r.path("/greetings/*")
+                        .filters(f -> f.circuitBreaker(c -> c.setName("circut").setFallbackUri("forward:/fallback")))
                         .uri("lb://hello-service"))
+                .route("fallback", r -> r.path("/fallback").uri("lb://fallback-service"))
                 .build();
     }
 
