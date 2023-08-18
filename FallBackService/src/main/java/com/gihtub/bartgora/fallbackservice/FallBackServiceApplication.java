@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class FallBackServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FallBackServiceApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(FallBackServiceApplication.class, args);
+    }
 }
