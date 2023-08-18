@@ -2,6 +2,7 @@ package com.gihtub.bartgora.fallbackservice;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
@@ -19,6 +20,6 @@ public class Config {
     }
 
     public Mono<ServerResponse> get() {
-        return ServerResponse.ok().bodyValue("FALLBACK");
+        return ServerResponse.status(HttpStatusCode.valueOf(302)).bodyValue("FALLBACK");
     }
 }
