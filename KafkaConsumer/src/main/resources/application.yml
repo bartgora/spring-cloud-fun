@@ -1,0 +1,14 @@
+server:
+  port: ${PORT}
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8090/eureka
+spring:
+  application:
+    name: kafka-consumer
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
