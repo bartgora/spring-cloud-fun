@@ -13,8 +13,8 @@ public class KafkaConsumerApplication {
 	}
 
 
-	@KafkaListener(topics = "kafka-fun", groupId = "fun-group")
+	@KafkaListener(topics = "kafka-fun", groupId = "fun-group" )
 	public void receive(Game game){
-		System.out.println("Game: " + game.getTitle());
+		System.out.println("Game: " + game.getTitle() +" Genre: " + game.getGenre());
 	}
 }

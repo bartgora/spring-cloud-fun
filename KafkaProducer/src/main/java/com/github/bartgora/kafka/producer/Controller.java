@@ -18,6 +18,6 @@ public class Controller {
 
     @PostMapping("/save")
     public void save(@RequestBody GameRequest gameRequest) {
-        kafkaTemplate.send("kafka-fun", new Game(gameRequest.id(), gameRequest.name(), gameRequest.genre()));
+        kafkaTemplate.send("kafka-fun", new Game(gameRequest.id(), gameRequest.title(), gameRequest.genre()));
     }
 }
