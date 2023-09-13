@@ -11,14 +11,14 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @Configuration
 public class Config {
 
-    @Value("${PORT:8080}")
+    @Value("${server.port}")
     String value;
 
     @Bean
     RouterFunction<ServerResponse> router() {
         return route()
                 .nest(RequestPredicates.path("greetings"), builder -> {
-                    builder.GET("/hello", h -> get());
+                    builder.GET("/hello", request -> get());
                 }).build();
     }
 

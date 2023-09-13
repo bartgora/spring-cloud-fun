@@ -1,0 +1,19 @@
+server:
+  port: 8085
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8090/eureka
+spring:
+  application:
+    name: gamers-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgres://localhost:5432/gamers_db
+    username: postgres
+    password: pa$$word
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
