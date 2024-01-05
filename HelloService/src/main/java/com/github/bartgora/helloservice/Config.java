@@ -27,9 +27,7 @@ public class Config {
     @Bean
     RouterFunction<ServerResponse> router() {
         return route()
-                .nest(RequestPredicates.path("greetings"), builder -> {
-                    builder.GET("/hello", h -> get());
-                }).build();
+                .nest(RequestPredicates.path("greetings"), builder -> builder.GET("/hello", h -> get())).build();
     }
 
     public Mono<ServerResponse> get() {
