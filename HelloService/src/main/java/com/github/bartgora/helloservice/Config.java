@@ -1,10 +1,11 @@
 package com.github.bartgora.helloservice;
 
-import io.micrometer.core.instrument.MeterRegistry;
-import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.function.server.RequestPredicates;
+import org.springframework.web.reactive.function.server.RouterFunction;
+import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
@@ -13,13 +14,15 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @Configuration
 public class Config {
 
-    @Bean
-    MeterRegistry myMeterRegistry() {
-        return new SimpleMeterRegistry();
-    }
+    final MetricsManager metricsManager;
 
     @Value("${PORT:8080}")
     String value;
+
+    public Config(MetricsManager metricsManager) {
+        this.metricsManager = metricsManager;
+    }
+
 
     @Bean
     RouterFunction<ServerResponse> router() {
@@ -30,6 +33,7 @@ public class Config {
     }
 
     public Mono<ServerResponse> get() {
+        metricsManager.inc();
         return ServerResponse.ok().bodyValue("Hello From service! " + value);
     }
 }
