@@ -1,0 +1,17 @@
+server:
+  port: ${PORT:8080}
+given:
+  name: Barnaba Zielona Pietruszka
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8090/eureka
+spring:
+  application:
+    name: name-service
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
