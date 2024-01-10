@@ -35,7 +35,7 @@ public class Config {
     }
 
     public Mono<ServerResponse> get() {
-        return Mono.fromRunnable(() -> metricsManager.inc())
+        return Mono.fromRunnable(metricsManager::inc)
                 .subscribeOn(Schedulers.boundedElastic())
                 .then(retrieveData())
                 .flatMap(name -> ServerResponse.ok().bodyValue("Hello From service! " + value + "  name:" + name)).log();
