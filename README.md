@@ -1,6 +1,6 @@
 # spring-cloud-fun
 
-A showcase project for simple system in microservice architekcture. </br>
+A showcase project for simple system in microservice architecture. </br>
 
 ## Components:
 Api Gateway - Spring gateway with reactive router, Load Balancer, and Circuit Breaker.</br>
