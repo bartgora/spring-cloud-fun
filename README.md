@@ -8,7 +8,7 @@ docker compose up
 ```
 
 ## Components:
-Api Gateway - Spring gateway with reactive router, Load Balancer, and Circuit Breaker.</br>
+<b>Api Gateway - Spring gateway with reactive router, Load Balancer, and Circuit Breaker</b>.</br>
 To add circut breaker to gateway we use Resilience4j library
 ```xml
        </dependency>
@@ -36,8 +36,8 @@ public class GatewayConfig {
 ```
 Above config will set route to hello service, and if hello service will be unavailable, rerute request to fallback service  
 
-Discovery Service - Netflix Eureka. </br>
-Hello Service - Springboot application with simple message Hello.</br>
+<b>Discovery Service - Netflix Eureka</b>. </br>
+<b>Hello Service - Springboot application</b> with simple message Hello.</br>
 In helllo serice we are using prometheus to count number of call to hello endpoint.
 First we need to create Mettrics Manager
 ```java
@@ -70,5 +70,5 @@ And now we can use it in our service:
   }
 ```
 
-Fallback Service - Springboot application that is used for Fallback in case Hello Service is not reacheble.</br>
+<b>Fallback Service - Springboot application</b> that is used for Fallback in case Hello Service is not reacheble.</br>
 
