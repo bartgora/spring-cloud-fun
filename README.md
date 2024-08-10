@@ -34,7 +34,7 @@ public class GatewayConfig {
                 .build();
     }
 ```
-Above config will set route to hello service, and if hello service will be unavailable, rerute request to fallback service  
+Above config will set route to hello service, and if hello service will be unavailable, reroute request to fallback service  
 
 <b>Discovery Service - Netflix Eureka</b>. </br>
 <b>Hello Service - Springboot application</b> with simple message Hello.</br>
